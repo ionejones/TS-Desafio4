@@ -133,9 +133,12 @@ async function adicionarFilme(filmeId:string) {
 
 async function criarRequestToken () {
     console.log("criarRequestToken");
-  let result: any = await HttpClient.get({
-    url: `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`,
-    method: "GET"
+    let url:string = `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`;
+    let method: string = "GET";
+    let body:any = null;
+  let result: any = await HttpClient.get({url, method, body
+//    url: `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`,
+ //   method: "GET"
   })
   requestToken = result.request_token
   console.log("token ",requestToken);
